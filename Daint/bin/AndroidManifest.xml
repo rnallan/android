@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.appnavigation"
+    android:versionCode="1"
+    android:versionName="1" >
+
+    <uses-sdk
+        android:maxSdkVersion="11"
+        android:minSdkVersion="11"
+        android:targetSdkVersion="11" />
+
+    <application android:label="@string/app_name" >
+        <receiver android:name="com.nallan.daint.receiver.CodeReviewReceiver" >
+            <intent-filter>
+                <action android:name="COMPLETE_NAME_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.nallan.daint.activity.CodeReview"
+            android:label="@string/title_activity_code_review" >
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.CodeReviewActivity"
+            android:label="@string/code_review"
+            android:parentActivityName="com.nallan.daint.activity.AppNavHomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.AppNavHomeActivity"
+            android:label="@string/app_nav_home_label" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.SimpleUpActivity"
+            android:label="@string/simple_up_label"
+            android:parentActivityName="com.nallan.daint.activity.AppNavHomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.PeerActivity"
+            android:label="@string/peer_label"
+            android:parentActivityName="com.nallan.daint.activity.AppNavHomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.ViewFromOtherTaskActivity"
+            android:label="@string/view_from_other_task_label"
+            android:parentActivityName="com.nallan.daint.activity.AppNavHomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.OutsideTaskActivity"
+            android:label="@string/outside_task_label"
+            android:taskAffinity="com.example.android.appnavigation.outsidetask"
+            android:theme="@style/Theme.Light" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.ContentViewActivity"
+            android:label="@string/content_view_label"
+            android:parentActivityName="com.nallan.daint.activity.ContentCategoryActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:mimeType="application/x-example" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.ContentCategoryActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.ContentCategoryActivity"
+            android:label="@string/content_category_label"
+            android:parentActivityName="com.nallan.daint.activity.AppNavHomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.NotificationsActivity"
+            android:label="@string/notifications_label"
+            android:parentActivityName="com.nallan.daint.activity.AppNavHomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.nallan.daint.activity.RefreshCodeReviewScreenActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/code_review"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@style/Theme.Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".app.AppNavHomeActivity" />
+        </activity>
+        
+         <activity
+            android:name="com.nallan.daint.activity.InterstitialMessageActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/interstitial_label"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.nallan.daint.service.CodeReviewService" />
+    </application>
+
+</manifest>
